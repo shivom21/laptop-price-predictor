@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Laptop Price Predictor</title>
+    <style>
+        body { font-family: Arial; padding: 30px; background: #f4f4f4; }
+        .container { max-width: 500px; margin: auto; background: white; padding: 20px; border-radius: 10px; }
+        h2 { text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Laptop Price Predictor 💻</h2>
+        <form method="POST" action="/predict">
+            <label>Company:</label><br>
+            <select name="company">
+                <option value="HP">HP</option>
+                <option value="Dell">Dell</option>
+                <option value="Apple">Apple</option>
+                <option value="Lenovo">Lenovo</option>
+            </select><br><br>
+
+            <label>Model Type:</label><br>
+            <select name="typename">
+                <option value="Notebook">Notebook</option>
+                <option value="Ultrabook">Ultrabook</option>
+                <option value="Gaming">Gaming</option>
+                <option value="Netbook">Netbook</option>
+            </select><br><br>
+
+            <label>RAM (GB):</label><br>
+            <input type="number" name="ram" required><br><br>
+
+            <label>Storage Type:</label><br>
+            <select name="memory">
+                <option value="SSD">SSD</option>
+                <option value="HDD">HDD</option>
+                <option value="Other">Other</option>
+            </select><br><br>
+
+            <label>Age (in years):</label><br>
+            <input type="number" name="age" required><br><br>
+
+            <input type="submit" value="Predict Price">
+        </form>
+
+        {% if prediction_text %}
+            <h3 style="color:green;">{{ prediction_text }}</h3>
+        {% endif %}
+    </div>
+</body>
+
+</html>
+
+
